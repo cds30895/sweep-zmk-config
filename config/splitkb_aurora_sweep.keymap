@@ -187,7 +187,7 @@
                 //
                 // Home row mod-tap keys for all except index fingers
                 //
-                hml: corne_home_row_mods_left_hand {
+                hml: sweep_home_row_mods_left_hand {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOME_ROW_MODS_LEFT_HAND";
                         flavor = HOMEY_HOLDING_TYPE;
@@ -201,7 +201,7 @@
                         #binding-cells = <2>;
                         bindings = <&kp>, <&kp>;
                 };
-                 hmr: corne_home_row_mods_right_hand {
+                 hmr: sweep_home_row_mods_right_hand {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOME_ROW_MODS_RIGHT_HAND";
                         flavor = HOMEY_HOLDING_TYPE;
@@ -219,7 +219,7 @@
                 //
                 // Special home row mod-tap keys for the index fingers
                 //
-                shl: corne_home_row_mods_left_shift_shift {
+                shl: sweep_home_row_mods_left_shift_shift {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOME_ROW_MODS_LEFT_SHIFT_SHIFT";
                         flavor = SHIFT_HOLDING_TYPE;
@@ -233,7 +233,7 @@
                         #binding-cells = <2>;
                         bindings = <&kp>, <&kp>;
                 };
-                shr: corne_home_row_mods_right_shift_shift {
+                shr: sweep_home_row_mods_right_shift_shift {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOME_ROW_MODS_RIGHT_SHIFT_SHIFT";
                         flavor = SHIFT_HOLDING_TYPE;
@@ -289,6 +289,7 @@
                         timeout-ms = <50>;
                         key-positions = <28 29>;
                         bindings = <&kp ESC>;
+                        layers = <0>;
                 };
         };
 
@@ -357,15 +358,15 @@
 
                 bt_layer{
 // -----------------------------------------------------------------------------------------
-// |     |     |     |     |     |   |     |     |     |     | CTRL-SHFT-ESC |
+// |     |     |     |     |     |   |     |     |     |     | BOOT          |
 // | BT1 | BT2 | BT3 | BT4 | BT5 |   |     |     |     |     | BTCLR         |
-// |     |     |     |     |     |   |     |     |     |     |               |
+// |     |     |     |     |     |   |     |     |     |     | CTRL-SHFT-ESC |
 //                   | L-0 | ENT |   | SPC | L-1 |
                         label = "BT";
                         bindings = <
-   &trans       &trans       &trans       &trans       &trans       &trans    &trans &trans   &trans &ctrl_shft_esc
+   &trans       &trans       &trans       &trans       &trans       &trans    &trans &trans   &trans &bootloader
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans    &trans &trans   &trans &bt BT_CLR
-   &trans       &trans       &trans       &trans       &trans       &trans    &trans &trans   &trans &trans
+   &trans       &trans       &trans       &trans       &trans       &trans    &trans &trans   &trans &ctrl_shft_esc
                                           &to 0        &kp RET      &kp SPACE &to 1
                         >;
                 };
