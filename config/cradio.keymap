@@ -267,11 +267,13 @@
                         timeout-ms = <50>;
                         key-positions = <0 1 >;
                         bindings = <&kp TAB>;
+                        layers = <0 1 2 3>;
                 };
                 combo_bspc {
                         timeout-ms = <50>;
                         key-positions = <8 9>;
                         bindings = <&kp BSPC>;
+                        layers = <0 1 2 3>;
                 };
                 combo_sqt {
                         timeout-ms = <50>;
@@ -291,6 +293,12 @@
                         bindings = <&kp ESC>;
                         layers = <0>;
                 };
+                combo_esc_gaming {
+                        timeout-ms = <50>;
+                        key-positions = <0 1>;
+                        bindings = <&kp ESC>;;
+                        layers = <5>;
+                };
         };
 
         keymap {
@@ -298,22 +306,30 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
+//      TAB                                                 BSPC
 // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |
+//
+//                                                           '
 // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |
+//
+//                                                          ESC
 // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  |
 //                   | L-0 | ENT |   | SPC | L-1 |
                         label = "Base";
                         bindings = <
-   &kp Q      &kp W       &kp E        &kp R         &kp T     &kp Y      &kp U         &kp I        &kp O       &kp P
+   &kp Q       &kp W       &kp E        &kp R         &kp T     &kp Y      &kp U         &kp I        &kp O       &kp P
    &hml LGUI A &hml LALT S &hml LCTRL D &shl LSHIFT F &kp G     &kp H      &shr RSHIFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI
-   &kp Z      &kp X       &kp C        &kp V         &kp B     &kp N      &kp M         &kp COMMA    &kp DOT     &kp FSLH
+   &kp Z       &kp X       &kp C        &kp V         &kp B     &kp N      &kp M         &kp COMMA    &kp DOT     &kp FSLH
                                        &to 0         &kp RET   &kp SPACE  &to 1
                         >;
                 };
 
                 nums_layer {
 // -----------------------------------------------------------------------------------------
+//      TAB                                                 BSPC
 // |     |     |     |     |     |   |  -  |  7  |  8  |  9  |  /  |
+//
+//                                                           *
 // |     |     |     |     |     |   |  =  |  4  |  5  |  6  |  +  |
 // |     |     |     |     |     |   |  0  |  1  |  2  |  3  | L-2 |
 //                   | L-0 | ENT |   | SPC | L-3 |
@@ -328,14 +344,15 @@
 
                 syms_layer {
 // -----------------------------------------------------------------------------------------
+//      TAB                                                 BSPC
 // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
-// |  `  |     |     |     |     |   |  =  |  -  |  [  |  ]  | "|" |
+// |  `  |     |     |     | L-5 |   |  =  |  -  |  [  |  ]  | "|" |
 // |  ~  |     |     |     |     |   |  _  |  +  |  {  |  }  |  \  |
 //                   | L-0 | ENT |   | SPC | L-1 |
                         label = "Symbols";
                         bindings = <
    &kp EXCL  &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp STAR &kp LPAR &kp RPAR
-   &kp GRAVE &none  &none    &none    &none       &kp EQUAL &kp MINUS &kp LBKT &kp RBKT &kp PIPE
+   &kp GRAVE &none  &none    &none    &to 5       &kp EQUAL &kp MINUS &kp LBKT &kp RBKT &kp PIPE
    &kp TILDE &none  &none    &none    &none       &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp BSLH
                              &to 0    &kp RET     &kp SPACE &to 1
                         >;
@@ -343,6 +360,7 @@
 
                 sys_layer {
 // -----------------------------------------------------------------------------------------
+//      TAB                                                       BSPC
 // |     | SCRL |  MSU | SCRR |     |   | MUTE | VOLD | VOLU |     |     |
 // |     |  MSL |  MSD | MSR  | DEL |   |  LFT |  DWN |   UP | RGT |     |
 // |     |      | SCRU | SCRD |     |   |      | LCLK | RCLK |     | L-4 |
@@ -368,6 +386,22 @@
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none     &none &none &none &bt BT_CLR
    &none        &none        &none        &none        &none          &none     &none &none &none &ctrl_shft_esc
                                           &to 0        &kp RET        &kp SPACE &to 1
+                        >;
+                };
+
+                gaming_layer{
+// -----------------------------------------------------------------------------------------
+//       ESC
+// |  TAB |  Q  |  W  |  E  |  R  |   |     |     |     |     |     |
+// | SHFT |  A  |  S  |  D  |  F  |   |     |     |     |     |     |
+// | CTRL |  Z  |  X  |  C  |  V  |   |     |     |     |     |     |
+//                    |     | SPC |   | SPC | L-1 |
+                        label = "Gaming";
+                        bindings = <
+   &kp TAB   &kp Q &kp W &kp E &kp R     &none      &none &none &none &none
+   &kp LSHFT &kp A &kp S &kp D &kp F     &none      &none &none &none &none
+   &kp LCTRL &kp Z &kp X &kp C &kp V     &none      &none &none &none &none
+                         &none &kp SPACE &kp SPACE  &to 1
                         >;
                 };
         };
