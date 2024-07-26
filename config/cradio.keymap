@@ -361,15 +361,15 @@
                 sys_layer {
 // -----------------------------------------------------------------------------------------
 //      TAB                                                       BSPC
-// |     | SCRL |  MSU | SCRR |     |   | MUTE | VOLD | VOLU |     |     |
-// |     |  MSL |  MSD | MSR  | DEL |   |  LFT |  DWN |   UP | RGT |     |
-// |     |      | SCRU | SCRD |     |   |      | LCLK | RCLK |     | L-4 |
+// | LALT  | SCRL |  MSU | SCRR |     |   | MUTE | VOLD | VOLU |     |     |
+// | LSHFT |  MSL |  MSD | MSR  | DEL |   |  LFT |  DWN |   UP | RGT |     |
+// | LCTRL | LGUI | SCRU | SCRD |     |   |      | LCLK | RCLK |     | L-4 |
 //                     |  L-0 | ENT |   |  SPC |  L-1 |
                         label = "System";
                         bindings = <
-   &none  &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none     &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none     &none
-   &none  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL   &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT &none
-   &none  &none          &msc SCRL_UP   &msc SCRL_DOWN  &none     &none      &mkp LCLK    &mkp RCLK    &none     &to 4
+   &kp LALT   &msc SCRL_LEFT &mmv MOVE_UP   &msc SCRL_RIGHT &none     &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none     &none
+   &kp LSHFT  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL   &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT &none
+   &kp LCTRL  &kp LGUI       &msc SCRL_UP   &msc SCRL_DOWN  &none     &none      &mkp LCLK    &mkp RCLK    &none     &to 4
                                         &to 0           &kp RET   &kp SPACE  &to 1
                         >;
                 };
